@@ -8,22 +8,22 @@
     "dropdown"
   ],
   "license": "MIT",
-  "version": "1.0.5",
+  "version": "1.1.0",
   "main": "./jquery.selectability.js",
   "types": "./jquery.selectability.d.ts",
   "homepage": "https://forumone.github.io/jquery.selectability.js/",
-  "author": "Alex Ford <aford@forumone.com>",
+  "author": "Ian Moffitt <nessthehero@gmail.com>",
   "bugs": {
-    "url": "https://github.com/forumone/jquery.selectability.js/issues"
+    "url": "https://github.com/BarkleyREI/jquery.selectability.js/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/forumone/jquery.selectability.js"
+    "url": "https://github.com/BarkleyREI/jquery.selectability.js"
   },
   "peerDependencies": {
-    "jquery": ">=1.9.0"
+    "jquery": ">=3.5.0"
   },
   "devDependencies": {
-    "@types/jquery": ">=1.9.0"
+    "@types/jquery": ">=3.5.0"
   }
 }

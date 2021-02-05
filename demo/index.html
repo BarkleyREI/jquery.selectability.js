@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Selectability.js Demo</title>
+	<link type="text/css" rel="stylesheet" href="style.css"/>
+</head>
+<body>
+	<h1>Selectability.js Demo</h1>
+	<section role="main" class="main">
+		<!-- example select element -->
+		<label for="select-demo">Select Demo</label>
+		<select name="example select" required class="selectability-offscreen" id="select-demo">
+			<option></option>
+			<option value="option-1">Option 1</option>
+			<option value="option-2">Option 2</option>
+			<option value="option-3">Option 3</option>
+			<option value="option-4" disabled>Disabled Option 4</option>
+			<option value="option-5">Option 5</option>
+		</select>
+		<hr />
+		<select name="example select" class="selectability-offscreen" id="select-demo-2">
+			<option></option>
+			<option value="option-1">Option 1</option>
+			<option value="option-2">Option 2</option>
+			<option value="option-3">Option 3</option>
+			<option value="option-4" disabled>Disabled Option 4</option>
+			<option value="option-5">Option 5</option>
+		</select>
+		<label for="select-demo-2">Select Demo</label>
+		<!-- end example select element -->
+	</section>
+
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+	<script src="../jquery.selectability.js"></script>
+
+	<script type="text/javascript">
+		$('#select-demo').selectability({
+			'position': 'below'
+		});
+		$('#select-demo-2').selectability();
+	</script>
+
+</body>
+</html>
