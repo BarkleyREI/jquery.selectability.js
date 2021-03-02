@@ -1,6 +1,6 @@
 {
   "name": "jquery.selectability",
-  "description": "An accessible, style-friendly dropdown widget",
+  "description": "An accessible, style-friendly dropdown widget - A BarkleyREI Fork",
   "keywords": [
     "jquery",
     "selectability",
@@ -8,7 +8,7 @@
     "dropdown"
   ],
   "license": "MIT",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "main": "./jquery.selectability.js",
   "types": "./jquery.selectability.d.ts",
   "homepage": "https://forumone.github.io/jquery.selectability.js/",
@@ -24,6 +24,10 @@
     "jquery": ">=3.5.0"
   },
   "devDependencies": {
-    "@types/jquery": ">=3.5.0"
+    "@types/jquery": ">=3.5.0",
+    "node-sass": "^5.0.0"
+  },
+  "scripts": {
+    "build": "node-sass -q --output-style=compressed demo/style.scss demo/style.css"
   }
 }

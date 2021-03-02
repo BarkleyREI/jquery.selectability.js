@@ -45,8 +45,16 @@ function Selectability(element, o) {
   this.element = element;
 
   this.defaults = $.extend({}, {
-    'position': 'above'
+    'position': 'above',
+    'floatLabel': false
   }, o);
+  
+  if (this.defaults.floatLabel) {
+    var id = this.element.attr('id');
+    this.label = $('label[for]')
+        .filter(function () { return $(this).attr('for') === id })
+        .get(0);
+  }
 
   this.buildElements();
   this.stealLabel();
@@ -132,6 +140,7 @@ Selectability.prototype.populateText = function (event) {
 
   var selected = this.element.find(':selected');
   if (selected.length) {
+    console.log(selected.attr('label'), selected.text());
     this.textbox.text(selected.attr('label') || selected.text());
   }
 }
@@ -274,7 +283,7 @@ Selectability.prototype.setActive = function(active) {
         val: value,
         selectability: true
       });
-
+  
   // nothing to do
   if (this.element.val() === value) {
     return;
@@ -287,10 +296,11 @@ Selectability.prototype.setActive = function(active) {
   // if the select is not empty, set a flag that designates so (to be used in styling)
   if (this.element.val() !== '' && this.element.val() !== null) {
     this.element.addClass('js-selectability--has-value');
-    this.textbox.addClass('js-selectability--has-value');
+    this.textbox.addClass('js-selectability--has-value');   
   } else {
     this.element.removeClass('js-selectability--has-value');
     this.textbox.removeClass('js-selectability--has-value');
+
   }
   
   try {
@@ -300,7 +310,12 @@ Selectability.prototype.setActive = function(active) {
     // promote 'change' to a cancelable event
     if (!event.isDefaultPrevented()) {
       this.active = active;
-      this.textbox.text(active.attr('label') || active.text());
+
+      if (this.element.val() === '') {
+         this.textbox.text('');
+      } else {
+        this.textbox.text(active.attr('label') || active.text());
+      }
     } else {
       // if the event is prevented, restore the old value
       this.element.val(prev);
@@ -362,7 +377,23 @@ Selectability.prototype.populateListbox = function() {
   this.populateText();
 
   var children = walk.call(this, this.element.children()).children();
+
+  var first = this.element.children()[0];
+
+  console.group('mod children');
+  console.log(children);
+
+  if (first.value === '' && this.defaults.floatLabel && this.label !== null) {
+    children[0].innerText = this.label.innerText;
+  }
+
+  console.log(children);
+  console.groupEnd();
+
   this.listbox.append(children);
+  
+  
+  
   return;
 
   function walk (elements) {

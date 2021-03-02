@@ -107,6 +107,10 @@ h1
     background-color: #99dbd7;
 }
 
+.selectability[aria-expanded='true'] {
+    z-index: 55;
+}
+
 /* the dropdown arrow after exansion (here, unchanged). */
 .selectability[aria-expanded='true'] [role*=textbox]::after
 {
@@ -160,4 +164,24 @@ h1
 .selectability [aria-disabled=true]
 {
     color: #999;
+}
+
+.float-label {
+    position: relative;
+    z-index: 45;
+    margin: 2rem 0;
+}
+
+.float-label label {
+    position: absolute;
+    top: 11px;
+    left: 13px;
+    padding: 0 2px;
+    transition: transform 250ms;
+    z-index: 55;
+}
+
+.float-label .js-selectability--has-value ~ label {
+    z-index: 57;
+    transform: translate(-17px, -32px) scale(0.8);
 }

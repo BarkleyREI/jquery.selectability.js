@@ -14,7 +14,7 @@ Usage
 =====
 
 ```javascript
-$('select').selectability();
+$('select:not([multiple])').selectability();
 ```
 
 You can pass a property of position to arrange where the rendered markup will appear in relation to the original select element.
@@ -22,8 +22,16 @@ You can pass a property of position to arrange where the rendered markup will ap
 Possible values: `above` / `below`
 
 ```javascript
-$('select').selectability({
+$('select:not([multiple])').selectability({
     'position': 'above'
+})
+```
+
+You can pass a property of floatLabel to add support for a floating label design pattern, where the label overlays the field like a placeholder would, but transitions above the field once a value has been set via an animation. This requires some additional CSS to set up, but essentially an empty option will be set to the value of the field label in the listbox when opened. This avoids an empty slot in the listbox when the field already has a value and a new value is being set.
+
+```javascript
+$('select:not([multiple])').selectability({
+	'floatLabel': true
 })
 ```
 

@@ -19,16 +19,18 @@
 			<option value="option-4" disabled>Disabled Option 4</option>
 			<option value="option-5">Option 5</option>
 		</select>
-		<hr />
-		<select name="example select" class="selectability-offscreen" id="select-demo-2">
-			<option></option>
-			<option value="option-1">Option 1</option>
-			<option value="option-2">Option 2</option>
-			<option value="option-3">Option 3</option>
-			<option value="option-4" disabled>Disabled Option 4</option>
-			<option value="option-5">Option 5</option>
-		</select>
-		<label for="select-demo-2">Select Demo</label>
+		<hr/>
+		<div class="float-label">
+			<select name="example select" class="selectability-offscreen" id="select-demo-2">
+				<option></option>
+				<option value="option-1">Option 1</option>
+				<option value="option-2">Option 2</option>
+				<option value="option-3">Option 3</option>
+				<option value="option-4" disabled>Disabled Option 4</option>
+				<option value="option-5">Option 5</option>
+			</select>
+			<label for="select-demo-2">Select Demo</label>
+		</div>
 		<!-- end example select element -->
 	</section>
 
@@ -40,7 +42,10 @@
 		$('#select-demo').selectability({
 			'position': 'below'
 		});
-		$('#select-demo-2').selectability();
+
+		$('#select-demo-2').selectability({
+			'floatLabel': true
+		});
 	</script>
 
 </body>
