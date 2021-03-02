@@ -10,6 +10,7 @@
 	<h1>Selectability.js Demo</h1>
 	<section role="main" class="main">
 		<!-- example select element -->
+		<h2>Standard (with position below)</h2>
 		<label for="select-demo">Select Demo</label>
 		<select name="example select" required class="selectability-offscreen" id="select-demo">
 			<option></option>
@@ -20,6 +21,7 @@
 			<option value="option-5">Option 5</option>
 		</select>
 		<hr/>
+		<h2>Float label with no default value</h2>
 		<div class="float-label">
 			<select name="example select" class="selectability-offscreen" id="select-demo-2">
 				<option></option>
@@ -30,6 +32,18 @@
 				<option value="option-5">Option 5</option>
 			</select>
 			<label for="select-demo-2">Select Demo</label>
+		</div>
+		<hr/>
+		<h2>Float label with default value</h2>
+		<div class="float-label">
+			<select name="example select" class="selectability-offscreen" id="select-demo-3">
+				<option value="option-1">Option 1</option>
+				<option value="option-2">Option 2</option>
+				<option value="option-3">Option 3</option>
+				<option value="option-4" disabled>Disabled Option 4</option>
+				<option value="option-5">Option 5</option>
+			</select>
+			<label for="select-demo-3">Select Demo</label>
 		</div>
 		<!-- end example select element -->
 	</section>
@@ -44,6 +58,10 @@
 		});
 
 		$('#select-demo-2').selectability({
+			'floatLabel': true
+		});
+
+		$('#select-demo-3').selectability({
 			'floatLabel': true
 		});
 	</script>

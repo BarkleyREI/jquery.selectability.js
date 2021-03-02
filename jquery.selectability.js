@@ -62,6 +62,14 @@ function Selectability(element, o) {
   this.populateText();
   this.registerHandlers();
 
+  if (this.element.val() !== '' && this.element.val() !== null) {
+    this.element.addClass('js-selectability--has-value');
+    this.textbox.addClass('js-selectability--has-value');
+  } else {
+    this.element.removeClass('js-selectability--has-value');
+    this.textbox.removeClass('js-selectability--has-value');
+  }
+
   element
     .attr('tabindex', -1)
     .addClass('selectability-offscreen');
@@ -300,7 +308,6 @@ Selectability.prototype.setActive = function(active) {
   } else {
     this.element.removeClass('js-selectability--has-value');
     this.textbox.removeClass('js-selectability--has-value');
-
   }
   
   try {

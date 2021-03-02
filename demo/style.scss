@@ -51,6 +51,12 @@ h1
 
     border: 0;
     outline: 0;
+
+    &.js-selectability--has-value {
+        ~ label {
+            transform: translate(-17px, -32px) scale(0.8);
+        }
+    }
 }
 
 /*this is the main container. apply base select box styles. */
@@ -86,7 +92,9 @@ h1
 /* the text inside the main select box before selecting an item. */
 .selectability [role*=textbox]
 {
+    position: relative;
     padding: 10px 0 6px 20px;
+    height: 100%;
 }
 
 /* the dropdown arrow & padding. */
@@ -122,6 +130,7 @@ h1
 {
     position: absolute;
     top: 38px;
+    z-index: 54;
 
     overflow-y: auto;
 
@@ -168,7 +177,7 @@ h1
 
 .float-label {
     position: relative;
-    z-index: 45;
+    z-index: 50;
     margin: 2rem 0;
 }
 
@@ -182,6 +191,6 @@ h1
 }
 
 .float-label .js-selectability--has-value ~ label {
-    z-index: 57;
+    z-index: 55;
     transform: translate(-17px, -32px) scale(0.8);
 }
